@@ -7,8 +7,6 @@ class CitiesController {
 
   index = async (req: Request, res: Response, next: NextFunction) => {
     const params = req.query;
-    const limit: number = params.page ? parseInt(params.limit as string) : 100;
-    const page: number = params.page ? parseInt(params.page as string) : 1;
     const where: any = {};
 
     if (params.StateId) {
