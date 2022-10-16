@@ -1,0 +1,77 @@
+# CRUD com API + frontend
+
+O exemplo presente nesse repositório contém um frontend que consome a [API criada em aula](https://github.com/christianbayer/crie_ti-cwia-t1/tree/main/aula9) e um sistema de login implementado em [Login com javascript](https://github.com/CRIETI/aplicacoes-web-client-server-step-2/tree/main/aula8-crud-js-login).
+
+O consumo é feito através do AXIOS e o frontend possui algumas bibliotecas para deixar o visual mais agradável.
+
+
+## Como executar
+
+Para o projeto funcionar, a API deve ser iniciada e depois executado o frontend
+
+### API
+
+Acesse o diretório api
+
+```
+cd api
+```
+
+Crie o arquivo `.env` com base no `.env.example`
+```
+cp .env.example .env
+```
+
+Utilize o editor de sua preferência para preencher os valores das variáveis de ambiente
+
+Instale os pacotes do NodeJS
+```
+npm install
+```
+
+Na primeira vez, executar o arquivo `udpdateDb.ts` para criar o usuário no banco de dados.
+
+Para isso, comentar a linha 18 no arquivo `db/index.ts` e descomentar as linhas 2 e 3 do mesmo arquivo, após isso, executar o comando
+```
+ts-node updateDb.ts
+```
+
+Após dar a mensagem de sucesso, descomentar a linha 18 no arquivo `db/index.ts` e comentar as linhas 2 e 3 do mesmo arquivo. Após isso, executar a API
+```
+npm run serve
+```
+
+### Frontend
+No front, basta editar o arquivo `endpoint.js`, na primeira linha, colocando o endpoint da sua API. No caso, está configurado para usar o `http://localhost:3000/`
+
+```javascript
+const ENDPOINT = "http://localhost:3000";
+```
+
+Como utilizamos o local storage, precisamos de um servidor para abrir os arquivos, afinal pelo `file` haverão problemas.
+
+Entrar na pasta front
+```
+cd front
+```
+
+Instalar os pacotes
+```
+npm install
+```
+
+Executar o servidor frontend
+```
+npm run serve
+```
+
+Acessar [http://localhost:8080](http://localhost:8080)
+
+- E-mail: mateus@mateus.com
+- Senha: 12345
+
+
+## Prints do projeto
+![result](docs/result.png)
+![create](docs/create.png)
+![edit](docs/edit.png)
