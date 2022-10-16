@@ -8,7 +8,7 @@ class User extends Model {
   declare sex: string;
   declare email: string;
 
-  static async locateUser(email: string, password: string) {
+  static locateUser = async (email: string, password: string) => {
     return await User.findOne({
       where: {
         email: email,

@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 import UserModel from '../models/User';
 
 class UsersController {
-
+  
   index = async (req: Request, res: Response) => {
     const params = req.query;
     const limit: number = parseInt(params.limit as string) || 100;

@@ -29,14 +29,12 @@ Instale os pacotes do NodeJS
 npm install
 ```
 
-Na primeira vez, executar o arquivo `udpdateDb.ts` para criar o usuário no banco de dados.
-
-Para isso, comentar a linha 18 no arquivo `db/index.ts` e descomentar as linhas 2 e 3 do mesmo arquivo, após isso, executar o comando
+Na primeira vez, executar o seeder de usuário para criar o usuário inicial. O comando abaixo criará um usuário automaticamente.
 ```
-ts-node updateDb.ts
+npx sequelize-cli db:seed:all
 ```
 
-Após dar a mensagem de sucesso, descomentar a linha 18 no arquivo `db/index.ts` e comentar as linhas 2 e 3 do mesmo arquivo. Após isso, executar a API
+Executar a API
 ```
 npm run serve
 ```
