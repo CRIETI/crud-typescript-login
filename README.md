@@ -1,6 +1,6 @@
 # CRUD com API + frontend
 
-O exemplo presente nesse repositório contém um frontend que consome a [API criada em aula](https://github.com/christianbayer/crie_ti-cwia-t1/tree/main/aula9) e um sistema de login implementado em [Login com javascript](https://github.com/CRIETI/aplicacoes-web-client-server-step-2/tree/main/aula8-crud-js-login).
+O exemplo presente nesse repositório contém um frontend que consome a [API criada em aula](https://github.com/christianbayer/crie_ti-cwia-t1/tree/main/aula9), um sistema de login implementado em [Login com javascript](https://github.com/CRIETI/aplicacoes-web-client-server-step-2/tree/main/aula8-crud-js-login) e Mestre Detalhe, implementado em [Mestre detalhe](https://github.com/CRIETI/aplicacoes-web-client-server-step-2/tree/main/aula9-mestre-detalhe).
 
 O consumo é feito através do AXIOS e o frontend possui algumas bibliotecas para deixar o visual mais agradável.
 
