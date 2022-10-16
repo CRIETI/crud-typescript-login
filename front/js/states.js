@@ -94,18 +94,59 @@ const showStateCreateBox = () => {
 const showStateEditBox = async (id) => {
     const state = await getState(id);
     const data = state.data;
+    const cidades = await axios.get(`${ENDPOINT}/cities/?StateId=` + id);
+    const result = cidades.data;
+
+    let trHTML = '';
+
+    for (let i in result) {
+        let element = result[i];
+        trHTML += '<tr>';
+        trHTML += '<td>' + element.id + '</td>';
+        trHTML += '<td>' + element.name + '</td>';
+        trHTML += '<td><button type="button" class="btn btn-outline-secondary" ';
+        trHTML += 'onclick="showCityEditBox(' + element.id + ')">Edit</button>';
+        trHTML += '<button type="button" class="btn btn-outline-danger"';
+        trHTML += 'onclick="cityDelete(' + element.id + ')">Del</button></td>';
+        trHTML += "</tr>";
+    }
+
+    const table = `
+    <h4>Cidades 
+    <button type="button" 
+    class="btn btn-secondary"
+    style="float: right"
+    onclick="showCityCreateBox(${id})">Create city
+    </button>
+    </h4>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+            ${trHTML}
+            </tbody>
+        </table>
+    </div>
+    `;
+
     Swal.fire({
         title: 'Edit State',
         html:
             '<input id="id" type="hidden" value=' + data.id + '>' +
             '<input id="name" class="swal2-input" placeholder="Name" value="' + data.name + '">' +
-            '<input id="province" class="swal2-input" placeholder="Province" value="' + data.province + '">',
-
+            '<input id="province" class="swal2-input" placeholder="Province" value="' + data.province + '">' +
+            table,
         focusConfirm: false,
         showCancelButton: true,
+        customClass: 'big-swal',
         preConfirm: () => {
             stateEdit();
         }
     });
-
 }
