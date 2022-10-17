@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 import UserModel from '../models/User';
 
 class UsersController {
-  
+
   index = async (req: Request, res: Response) => {
     const params = req.query;
     const limit: number = parseInt(params.limit as string) || 100;
@@ -96,18 +96,7 @@ class UsersController {
     res.json({});
   }
 
-  authentication = async (req: Request, res: Response) => {
-    let authorization = req.headers.authorization as string;
-    authorization = authorization.replace("Basic ", '');
-    let ascii = Buffer.from(authorization, 'base64').toString('ascii')
-    let data = ascii.split(":");
 
-    let username = data[0];
-    let password = data[1];
-
-    let logged = await UserModel.locateUser(username, password);
-    res.json(logged);
-  }
 
   _validateData = async (data: any, id?: any) => {
     const attributes = ['name', 'age', 'sex', 'email', 'password'];

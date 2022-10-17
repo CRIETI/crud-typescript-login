@@ -13,12 +13,10 @@ const verify = async () => {
     let authorization = `${logged.email}:${logged.password}`;
     let base64 = btoa(authorization);
 
-    const response = await axios.get(`${ENDPOINT}/verify`, {
-        headers: {
-            Authorization: `Basic ${base64}`,
-            'Cache-Control': 'no-store'
-        }
-    });
+    axios.defaults.headers.common['Authorization'] = `Basic ${base64}`;
+    axios.defaults.headers.common['Cache-Control'] = 'no-store';
+
+    const response = await axios.get(`${ENDPOINT}/verify`);
 
     const user = await response.data;
 
@@ -33,6 +31,7 @@ const verify = async () => {
 
 const out = () => {
     localStorage.removeItem('logged');
+    delete axios.defaults.headers.common["Authorization"];
 }
 
 verify();

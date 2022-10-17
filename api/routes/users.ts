@@ -18,7 +18,5 @@ routerUsers.post('/users', usersController.create);
 routerUsers.get('/users/:userId', validateUserId, usersController.show);
 routerUsers.put('/users/:userId', validateUserId, usersController.update);
 routerUsers.delete('/users/:userId', validateUserId, usersController.delete);
-routerUsers.get('/auth', usersController.authentication);
-routerUsers.get('/verify', usersController.authentication);
 
 export default routerUsers;
