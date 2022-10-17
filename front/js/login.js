@@ -52,9 +52,9 @@ const verify = async () => {
 
         const response = await axios.get(`${ENDPOINT}/verify`);
 
-        const usuario = await response.data;
+        const user = await response.data;
 
-        if (usuario) {
+        if (user) {
             window.location = 'users.html'
         }
     } catch {
