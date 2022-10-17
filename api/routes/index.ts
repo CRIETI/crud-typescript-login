@@ -30,7 +30,7 @@ const authentication = async (req: Request, res: Response, next: NextFunction) =
         }
 
         if (req.path === "/auth" || req.path === "/verify") {
-            res.json(user);
+            return res.json(user);
         } else {
             next();
         }
