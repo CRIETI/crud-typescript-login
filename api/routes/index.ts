@@ -17,7 +17,7 @@ const authentication = async (req: Request, res: Response, next: NextFunction) =
         }
 
         authorization = authorization.replace("Basic ", '');
-        let ascii = Buffer.from(authorization, 'base64').toString('ascii')
+        let ascii = Buffer.from(authorization, 'base64').toString('ascii');
         let data = ascii.split(":");
 
         let username = data[0];

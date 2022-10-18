@@ -29,16 +29,15 @@ Instale os pacotes do NodeJS
 npm install
 ```
 
-Na primeira vez, executar o seeder de usuário para criar o usuário inicial. O comando abaixo criará um usuário automaticamente.
-```
-npx sequelize-cli db:seed:all
-```
-
 Executar a API
 ```
 npm run serve
 ```
 
+Na primeira vez, executar o seeder de usuário para criar o usuário inicial. O comando abaixo criará um usuário automaticamente.
+```
+npx sequelize-cli db:seed:all
+```
 ### Frontend
 No front, basta editar o arquivo `endpoint.js`, na primeira linha, colocando o endpoint da sua API. No caso, está configurado para usar o `http://localhost:3000/`
 
