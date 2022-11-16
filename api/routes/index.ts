@@ -4,6 +4,7 @@ import UserModel from '../models/User';
 import routerUsers from './users';
 import routerStates from './states';
 import routerCities from './cities';
+import path from 'path';
 
 const router = express.Router();
 
@@ -40,6 +41,7 @@ const authentication = async (req: Request, res: Response, next: NextFunction) =
 }
 
 router.use(cors());
+router.use('/static', express.static(path.join(__dirname, '../uploads'))); // deixar diretório de imagens público e sem auth
 router.use(authentication);
 router.use(routerUsers);
 router.use(routerStates);

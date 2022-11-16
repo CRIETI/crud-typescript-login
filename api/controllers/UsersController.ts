@@ -96,7 +96,13 @@ class UsersController {
     res.json({});
   }
 
-
+  uploadAvatar = async (req: Request, res: Response) => {
+    try {
+      res.send(req.file?.filename);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message + "" });
+    }
+  }
 
   _validateData = async (data: any, id?: any) => {
     const attributes = ['name', 'age', 'sex', 'email', 'password'];
